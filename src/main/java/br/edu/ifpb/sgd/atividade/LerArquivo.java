@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class LerArquivo {
     
     public static void main(String[] args) {
-        Path caminho = Paths.get("C:/Users/Edilva/Desktop/seguranca.txt");
+        Path caminho = Paths.get("seguranca.txt");
         try {
             byte[] texto = Files.readAllBytes(caminho);
             String leitura = new String(texto);
