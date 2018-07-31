@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,11 +28,16 @@ public class LerArquivo {
             
             leitura = leitura.replaceAll(quebraLinha, "");
             
-            List<String> lista = Arrays.asList(leitura.split("[ /©|*,:;.!?()\\[\\]=+&%$#@...]"));
+            List<String> lista = Arrays.asList(leitura.split("[ /©|*,:;.!?()\\[\\]=+&%$#@...\"']"));
 
-            for (String string : lista) {
+            Set<String> lista2 = new HashSet<>();
+            lista.forEach((string) -> {
+                lista2.add(string);
+            });
+            
+            lista2.forEach((string) -> {
                 System.out.println(string);
-            }
+            });
 
         } catch (IOException ex) {
             Logger.getLogger(LerArquivo.class.getName()).log(Level.SEVERE, null, ex);
